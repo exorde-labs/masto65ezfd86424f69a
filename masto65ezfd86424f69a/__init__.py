@@ -83,6 +83,8 @@ def parse_mastodon_post(post_data):
 
     # Extracting the parent ID if it exists
     parent_id = post_data['in_reply_to_id']
+    if parent_id is None:
+        parent_id = ""
 
     # Extracting the language of the post
     language = post_data['language']
@@ -91,6 +93,10 @@ def parse_mastodon_post(post_data):
     content = post_data['content']
     soup = BeautifulSoup(content, 'html.parser')
     text_content = soup.get_text(separator=' ')
+
+    if created_at is None or url is None or post_id is None or parent_id is None \
+        or len(text_content) == 0 or len(url) < 10 or len(created_at)<1:
+        return None
 
     return {
         'url': url,
@@ -120,6 +126,8 @@ async def scrape_mastodon_hashtag(hashtag, max_oldness_seconds, min_post_length)
 
         for t in toots:
             toot = parse_mastodon_post(t)
+            if toot is None:
+                continue
             created_at = datett.strptime(toot['created_at'], '%Y-%m-%dT%H:%M:%S.%fZ')
             current_time = datett.utcnow()
 
@@ -137,6 +145,7 @@ async def scrape_mastodon_hashtag(hashtag, max_oldness_seconds, min_post_length)
         URL = default_mastodon_endpoint + hashtag + '?max_id=' + max_id
 
     return results
+
 
 
 def read_parameters(parameters):
@@ -170,6 +179,7 @@ def read_parameters(parameters):
 
     return max_oldness_seconds, maximum_items_to_collect, min_post_length, special_kw_checks
 
+
 def filter_keyword_for_hashtag(input_string):
     # Remove everything between brackets
     filtered_string = re.sub(r'[\[\(][^\[\]\(\)]*[\]\)]', '', input_string)
@@ -184,6 +194,7 @@ def filter_keyword_for_hashtag(input_string):
             filtered_string = paren_content[0]
         else:
             filtered_string = ''
+
 
 async def query(parameters: dict) -> AsyncGenerator[Item, None]:    
     logging.info(f"[Mastodon] Scraping latest posts on Mastodon major instances")
