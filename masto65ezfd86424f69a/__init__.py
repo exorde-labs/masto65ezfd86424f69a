@@ -82,9 +82,10 @@ def parse_mastodon_post(post_data):
     post_id = post_data['id']
 
     # Extracting the parent ID if it exists
-    parent_id = post_data['in_reply_to_id']
-    if parent_id is None:
-        parent_id = ""
+    # Extracting the parent ID if it exists
+    parent_id = ""
+    if post_data['in_reply_to_id'] is not None and len(post_data['in_reply_to_id'])>0:
+        parent_id = post_data['in_reply_to_id']
 
     # Extracting the language of the post
     language = post_data['language']
