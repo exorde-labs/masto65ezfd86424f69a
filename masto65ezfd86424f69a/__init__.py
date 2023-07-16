@@ -180,10 +180,8 @@ def filter_keyword_for_hashtag(input_string):
     # Randomly include content within parentheses
     if random.random() < 0.3:
         paren_content = re.findall(r'\(([^()]+)\)', input_string)
-        try:
+        if paren_content:
             filtered_string = paren_content[0]
-        except:
-            pass
 
     return filtered_string
 
@@ -194,9 +192,13 @@ async def query(parameters: dict) -> AsyncGenerator[Item, None]:
     try:
         if "url_parameters" in parameters and "keyword" in parameters["url_parameters"]:
             search_keyword = parameters["url_parameters"]["keyword"]
-        elif "keyword" in parameters:
+        if "keyword" in parameters:
             search_keyword = parameters["keyword"]
         search_keyword = filter_keyword_for_hashtag(search_keyword)
+    except Exception as e:
+        logging.info(f"[Mastodon parameters] checking url_parameters: %s",(max_oldness_seconds, maximum_items_to_collect, min_post_length, special_kw_checks))    
+        logging.exception(f"[Mastodon parameters] Keyword input read failed: {e}")    
+
     except Exception as e:
         logging.info(f"[Mastodon parameters] checking url_parameters: %s",(max_oldness_seconds, maximum_items_to_collect, min_post_length, special_kw_checks))    
         logging.exception(f"[Mastodon parameters] Keyword input read failed: {e}")    
