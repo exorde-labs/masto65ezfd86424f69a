@@ -178,12 +178,12 @@ def filter_keyword_for_hashtag(input_string):
     # Lowercase the filtered string
     filtered_string = filtered_string.lower()
     # Randomly include content within parentheses
-    if random.random() < 0.3:
-        paren_content = re.findall(r'\(([^()]+)\)', input_string)
+    paren_content = re.findall(r'\(([^()]+)\)', input_string)
+    if random.random() < 0.5 and paren_content != None and len(paren_content)>0:
         if paren_content:
             filtered_string = paren_content[0]
-
-    return filtered_string
+        else:
+            filtered_string = ''
 
 async def query(parameters: dict) -> AsyncGenerator[Item, None]:    
     logging.info(f"[Mastodon] Scraping latest posts on Mastodon major instances")
@@ -199,11 +199,7 @@ async def query(parameters: dict) -> AsyncGenerator[Item, None]:
         logging.info(f"[Mastodon parameters] checking url_parameters: %s",(max_oldness_seconds, maximum_items_to_collect, min_post_length, special_kw_checks))    
         logging.exception(f"[Mastodon parameters] Keyword input read failed: {e}")    
 
-    except Exception as e:
-        logging.info(f"[Mastodon parameters] checking url_parameters: %s",(max_oldness_seconds, maximum_items_to_collect, min_post_length, special_kw_checks))    
-        logging.exception(f"[Mastodon parameters] Keyword input read failed: {e}")    
-
-    if search_keyword is None or len(search_keyword) < 1 :        
+    if search_keyword is None or len(search_keyword) < 1:        
         search_keyword = random.choice(DEFAULT_KEYWORDS)
     logging.info(f"[Mastodon] Scraping hashtag {search_keyword} ...")    
 
