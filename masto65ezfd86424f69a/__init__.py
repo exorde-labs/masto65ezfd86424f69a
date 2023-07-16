@@ -194,6 +194,7 @@ async def query(parameters: dict) -> AsyncGenerator[Item, None]:
             search_keyword = parameters["url_parameters"]["keyword"]
         if "keyword" in parameters:
             search_keyword = parameters["keyword"]
+        logging.info(f"[Mastodon] formatting keyword: {search_keyword} ...")    
         search_keyword = filter_keyword_for_hashtag(search_keyword)
     except Exception as e:
         logging.info(f"[Mastodon parameters] checking url_parameters: %s",(max_oldness_seconds, maximum_items_to_collect, min_post_length, special_kw_checks))    
