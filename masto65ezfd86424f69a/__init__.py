@@ -178,10 +178,12 @@ def filter_keyword_for_hashtag(input_string):
     # Lowercase the filtered string
     filtered_string = filtered_string.lower()
     # Randomly include content within parentheses
-    if True:
+    if random.random() < 0.3:
         paren_content = re.findall(r'\(([^()]+)\)', input_string)
-        if paren_content is not None and len(paren_content[0])>=2:
+        try:
             filtered_string = paren_content[0]
+        except:
+            pass
 
     return filtered_string
 
