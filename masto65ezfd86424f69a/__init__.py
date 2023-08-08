@@ -49,12 +49,40 @@ DEFAULT_KEYWORDS = \
 "politics", "business", "twitter", "digital", "airdrop", "gamestop", "finance", "liquidity","token", "economy", "markets", "stocks", "crisis", "gpt", "gpt3",
 "russia", "war", "ukraine", "luxury", "LVMH", "Elonmusk", "conflict", "bank", "Gensler", "emeutes", "FaceID", "Riot", "riots", "Franceriot", "France",
 "UnitedStates", "USA", "China", "Germany", "Europe", "Canada", "Mexico", "Brazil", "price", "market", "NYSE","NASDAQ", "CAC", "CAC40", "G20", "OilPrice", 
-"FTSE", "NYSE", "WallStreet", "money", "forex", "trading", "currency", "USD", "WarrenBuffett", "BlackRock", "Berkshire", "IPO", "Apple", "Tesla","Alphabet",
+"FTSE", "NYSE", "WallStreet", "money", "forex", "trading", "currency", "USD", "WarrenBuffett", "BlackRock", "Berkshire", "IPO", "Apple", "Tesla",
  "FBstock","debt", "bonds", "XAUUSD", "SP500", "DowJones", "satoshi", "shorts", "live", "algotrading", "tradingalgoritmico", "prorealtime", "ig", "igmarkets", 
  "win", "trading", "trader", "algorithm", "cfdauto", "algos", "bottrading", "tradingrobot", "robottrading", "prorealtimetrading", "algorithmictrading",
 "usa ", "canada ", "denmark", "russia", "japan", "italy", "spain", "uk", "eu", "social", "iran", "war","socialism", "Biden", "democracy", "justice", "canada", "leftist",
 "election", "vote", "protocol", "network", "org", "organization", "charity", "money", "scam", "token", "tokens", "ecosystem",
-"rightwing",  "DAX", "NASDAQ", "RUSSELL", "RUSSELL2000", "GOLD", "XAUUSD", "DAX40", "IBEX", "IBEX35", "oil", "crude", "crudeoil", "us500", "russell", "russell2000"]
+"rightwing",  "DAX", "NASDAQ", "RUSSELL", "RUSSELL2000", "GOLD", "XAUUSD", "DAX40", "IBEX", "IBEX35", "oil", "crude", "crudeoil", "us500", "russell", "russell2000",
+"Apple", "AAPL", "Microsoft", "MSFT", "Amazon", "AMZN", "Alphabet", "GOOGL", "Meta", "FB",
+"Tesla", "TSLA", "Facebook", "FB", "Berkshire", "BRK", "Johnson", "JNJ",
+"JPMorgan", "JPM", "Visa", "V", "Procter", "PG", "Mastercard", "MA",
+"Walmart", "WMT", "UnitedHealth", "UNH", "Netflix", "NFLX", "Bank", "BAC",
+"Walt", "Disney", "DIS", "Verizon", "VZ", "Home", "Depot", "HD", "Coca-Cola", "KO",
+"NVIDIA", "NVDA", "Intel", "INTC", "Adobe", "ADBE", "PayPal", "PYPL", "Cisco", "CSCO",
+# Top 25 Cryptocurrencies
+"Bitcoin", "BTC", "Ethereum", "ETH", "Binance", "BNB", "Solana", "SOL", "Cardano", "ADA",
+"XRP", "XRP", "Polkadot", "DOT", "Dogecoin", "DOGE", "Avalanche", "AVAX", "Terra", "LUNA",
+"Chainlink", "LINK", "Polygon", "MATIC", "Algorand", "ALGO", "VeChain", "VET", "Tezos", "XTZ",
+"Stellar", "XLM", "Cosmos", "ATOM", "Filecoin", "FIL", "Aave", "AAVE", "Uniswap", "UNI",
+"SushiSwap", "SUSHI", "Compound", "COMP", "Maker", "MKR", "Yearn.finance", "YFI", "Synthetix", "SNX",
+# Top 25 Companies
+"Microsoft", "Apple", "Amazon", "Meta", "Google", "Facebook", "Tesla", "Alphabet",
+"Berkshire", "Johnson", "JPMorgan", "Visa", "Procter", "Mastercard", "Walmart",
+"UnitedHealth", "Netflix", "Bank", "Disney", "Verizon", "Home", "Coca-Cola", "NVIDIA",
+"Intel", "Adobe",
+# Top 25 Countries and Politics
+"USA", "China", "India", "Japan", "Germany", "UK", "France", "Russia", "Brazil", "Canada",
+"Australia", "South", "Korea", "Italy", "Mexico", "Spain", "Netherlands", "Turkey", "Indonesia",
+"Saudi", "Arabia", "Switzerland", "EU", "UN", "NATO", "Brexit", "Climate", "Change",
+# Top 25 Important Events/Topics
+"COVID-19", "Pandemic", "Climate", "Change", "Elections", "Global", "Economy", "Inflation",
+"Central", "Banks", "Federal", "Reserve", "Trade", "War", "Tech", "Innovation", "Space", "Exploration",
+"Cybersecurity", "Digital", "Transformation", "Blockchain", "Cryptocurrency", "Regulation",
+"DeFi", "NFTs", "Web3", "AI", "5G", "Remote", "Work", "Supply", "Chain", "Disruptions",
+"Renewable", "Energy", "Geopolitics", "Social", "Movements"
+]
 
 def is_within_timeframe_seconds(dt_str, timeframe_sec):
     # Convert the datetime string to a datetime object
